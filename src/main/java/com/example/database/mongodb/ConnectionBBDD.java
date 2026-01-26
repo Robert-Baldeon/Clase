@@ -6,7 +6,7 @@ import com.mongodb.client.MongoDatabase; // - MongoDatabase: representa una base
 
 public class ConnectionBBDD {
     private static final String URL_MONGO = "mongodb://localhost:27017";
-    private static final String DB_NAME = "clase";
+    private static final String DB_NAME = "pruebas";
 
     // Singleton para el cliente 
     // Variable estática para guardar la instancia de MongoClient
