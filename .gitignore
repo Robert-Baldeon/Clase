@@ -1,12 +1,11 @@
 ### --- SEGURIDAD Y CONFIGURACIÓN (CRÍTICO) --- ###
+target/
+
 # Ignorar persistencia con contraseñas
 src/main/resources/META-INF/persistence.xml
 
 # Ignorar archivos de variables de entorno
 .env
-
-# Ignorar el archivo de datos si es muy pesado
-src/main/resources/json/MOCK_DATA.json
 
 ### --- IDEs (Eclipse, IntelliJ, VSCode) --- ###
 # Eclipse
