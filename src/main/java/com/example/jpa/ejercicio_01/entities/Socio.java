@@ -1,12 +1,16 @@
 package com.example.jpa.ejercicio_01.entities;
 
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "socio")
-public class Socio {
+public class Socio implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,11 +18,11 @@ public class Socio {
     private String nombre;
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne()
     @JoinColumn(name = "id_membresia")
     private Membresia membresia;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany()
     @JoinTable(
         name = "inscripciones_actividades",
         joinColumns = @JoinColumn(name = "id_socio"),
@@ -28,7 +32,6 @@ public class Socio {
 
     public Socio() {}
 
-    // Getters y Setters
     public Long getId() { return id; }
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }

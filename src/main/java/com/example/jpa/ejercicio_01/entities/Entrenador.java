@@ -1,25 +1,31 @@
 package com.example.jpa.ejercicio_01.entities;
 
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "entrenador")
-public class Entrenador {
+public class Entrenador implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "especialidad")
     private String especialidad;
 
-    @OneToMany(mappedBy = "entrenador", cascade = CascadeType.ALL)
-    private List<Actividad> actividadesDirigidas = new ArrayList<>(); // Inicializada
+    @OneToMany(mappedBy = "entrenador")
+    private List<Actividad> actividadesDirigidas = new ArrayList<>();
 
     public Entrenador() {}
 
-    // Getters y Setters
     public Long getId() { return id; }
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }

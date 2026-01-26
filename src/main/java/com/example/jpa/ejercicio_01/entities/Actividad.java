@@ -1,12 +1,16 @@
 package com.example.jpa.ejercicio_01.entities;
 
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "actividad")
-public class Actividad {
+public class Actividad implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,7 +18,7 @@ public class Actividad {
     @Column(name = "nombre_actividad")
     private String nombreActividad;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "id_entrenador")
     private Entrenador entrenador;
 
@@ -23,7 +27,6 @@ public class Actividad {
 
     public Actividad() {}
 
-    // Getters y Setters
     public Long getId() { return id; }
     public String getNombreActividad() { return nombreActividad; }
     public void setNombreActividad(String nombreActividad) { this.nombreActividad = nombreActividad; }
