@@ -1,0 +1,35 @@
+[
+  {
+    "id_empleado": 1,
+    "nombre": "Carlos Mendoza",
+    "puesto": "Gerente",
+    "tipo_jornada": "Tiempo completo",
+    "email": "carlos.mendoza@cine.com",
+    "telefono": "555100001",
+    "fecha_contratacion": "2022-01-10",
+    "salario_hora": 150.00,
+    "activo": true
+  },
+  {
+    "id_empleado": 2,
+    "nombre": "Ana Rodríguez",
+    "puesto": "Subgerente",
+    "tipo_jornada": "Tiempo completo",
+    "email": "ana.rodriguez@cine.com",
+    "telefono": "555100002",
+    "fecha_contratacion": "2022-02-05",
+    "salario_hora": 130.00,
+    "activo": true
+  },
+  {
+    "id_empleado": 3,
+    "nombre": "Luis Fernández",
+    "puesto": "Administrador General",
+    "tipo_jornada": "Tiempo completo",
+    "email": "luis.fernandez@cine.com",
+    "telefono": "555100003",
+    "fecha_contratacion": "2021-09-12",
+    "salario_hora": 140.00,
+    "activo": true
+  }
+]
