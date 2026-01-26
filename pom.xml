@@ -75,6 +75,13 @@
             <scope>compile</scope>
         </dependency>
 
+        <!-- Gson: librería de Google para convertir objetos Java a JSON y viceversa -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.13.2</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <!-- Configuración de construcción del proyecto -->
