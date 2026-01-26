@@ -18,20 +18,20 @@ public class Main {
         System.out.println("\n--- INICIANDO PRUEBAS DEL CRUD ---");
 
         // A. LISTAR
-        gestorAlumnos.listarAlumnos();
+        // gestorAlumnos.listarAlumnos();
 
         // B. INSERTAR ALUMNO
         gestorAlumnos.insertarAlumno("Ana", "Vázquez", "Guerrero", 25);
 
         // C. ACTUALIZAR ALUMNO
-        gestorAlumnos.actualizarAlumno("Mónica", "Mónica", "Blásquez", "Güera", 20);
+        // gestorAlumnos.actualizarAlumno("Mónica", "Mónica", "Blásquez", "Güera", 20);
 
         // D. BORRAR ALUMNO
-        gestorAlumnos.eliminarPorNombre("Ana");
+        // gestorAlumnos.eliminarPorNombre("Ana");
 
         // E. LISTAR FINAL (Para ver cómo quedó la base de datos)
-        System.out.println("\n--- ESTADO FINAL DE LA COLECCIÓN ---");
-        gestorAlumnos.listarAlumnos();
+        // System.out.println("\n--- ESTADO FINAL DE LA COLECCIÓN ---");
+        // gestorAlumnos.listarAlumnos();
 
         // 4. CERRAR CONEXIÓN
         // Es vital cerrar el cliente para liberar memoria en tu Arch Linux

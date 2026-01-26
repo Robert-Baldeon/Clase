@@ -36,9 +36,9 @@ public class ConnectionBBDD {
 
     // Método para cerrar la conexión al terminal el programa
     public static void close() {
-        if (mongoClient != null) { // Solo cierra si existe un cliente activo
-            mongoClient.close(); // Cierra la conexión
-            mongoClient = null; // Reinicia la variable para permitir reconexión si se desea
+        if (mongoClient != null) {  // Solo cierra si existe un cliente activo
+            mongoClient.close();    // Cierra la conexión
+            mongoClient = null;     // Reinicia la variable para permitir reconexión si se desea
 
         }
     }

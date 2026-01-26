@@ -16,7 +16,7 @@ public class Alumno {
     private MongoCollection<Document> getCollection() {
         // ConnectionBBDD.getConnectionMongo() devuelve la base de datos
         // .getCollection("Alumnos") devuelve la colección específica
-        return ConnectionBBDD.getConnectionMongo().getCollection("Alumnos");
+        return ConnectionBBDD.getConnectionMongo().getCollection("alumnos");
     }
 
     // 1. LISTAR TODOS LOS ALUMNOS
