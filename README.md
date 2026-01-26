@@ -7,4 +7,6 @@ src/main/java/com/example/database/mongodb/
 ```
 
 Para probar que todo funciona bien ejecuta este comando
+```bash
 mvn exec:java -Dexec.mainClass="com.example.database.mongodb.Main"
+```
