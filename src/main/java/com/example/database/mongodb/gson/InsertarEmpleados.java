@@ -80,9 +80,9 @@ public class InsertarEmpleados {
         // ----------------------------------------------------------------
         if (!empleados.isEmpty()) {
             coleccion.insertMany(empleados);
-            System.out.println("Se insertaron " + empleados.size() + " empleados correctamente.");
+            System.out.println("Se insertaron " + empleados.size() + " empleados correctamente");
         } else {
-            System.out.println("No hay empleados para insertar.");
+            System.out.println("No hay empleados para insertar");
         }
 
         // ----------------------------------------
