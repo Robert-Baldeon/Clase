@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- Versión del modelo POM que usa Maven -->
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Identificador único del grupo (normalmente dominio invertido) -->
+    <groupId>com.example</groupId>
+
+    <!-- Nombre del proyecto / artefacto generado -->
+    <artifactId>Clase</artifactId>
+
+    <!-- Versión del proyecto -->
+    <version>1.0-SNAPSHOT</version>
+
+    <!-- Nombre legible del proyecto -->
+    <name>Clase</name>
+
+    <!-- Tipo de empaquetado: jar, war, ear, etc. -->
+    <packaging>jar</packaging>
+
+    <!-- Propiedades reutilizables en el POM -->
+    <properties>
+        <!-- Codificación del código fuente -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Versión de Java usada para compilar -->
+        <maven.compiler.release>25</maven.compiler.release>
+    </properties>
+
+    <!-- Dependencias del proyecto -->
+    <dependencies>
+
+        <!-- Driver JDBC para MariaDB -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.5.7</version>
+            <!-- Disponible en tiempo de compilación y ejecución -->
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Driver JDBC para PostgreSQL -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.9</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Driver síncrono oficial de MongoDB -->
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongodb-driver-sync</artifactId>
+            <version>5.6.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Dependencia de Hibernate Core para ORM -->
+        <!-- Hibernate 6.5.2.Final: framework de mapeo objeto-relacional estable,
+        permite trabajar con bases de datos usando objetos Java en lugar de SQL directo -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.5.2.Final</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- Logback Classic: implementación de SLF4J para logging en Java.
+        Se utiliza para registrar mensajes de debug, info, warning y error en la aplicación. -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.5.25</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- Configuración de construcción del proyecto -->
+    <build>
+        <plugins>
+
+            <!-- Plugin que se encarga de compilar el código Java -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <!-- 
+                    Usa la propiedad maven.compiler.release
+                    para definir la versión de Java
+                -->
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
