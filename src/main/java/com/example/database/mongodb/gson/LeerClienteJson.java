@@ -12,17 +12,17 @@ import com.google.gson.JsonSyntaxException; // // Para capturar errores si el JS
 public class LeerClienteJson {
     public static void main(String[] args) {
         try {
-            // Creamos un objeto Gson para convertir JSON a objetos Java
-            Gson gson = new Gson();
-
             // Cargamos el archivo Cliente.json desde la carpeta resources/json
             InputStream inputStream = LeerClienteJson.class.getResourceAsStream("/json/Cliente.json");
 
             // Si no se encuentra el archivo, mostramos un mensaje de error y salimos
             if (inputStream == null) {
-                System.err.println("Error: No se pudo encontrar el archivo");
+                System.err.println("Error: No se pudo encontrar el archivo json");
                 return;
             }
+
+            // Creamos un objeto Gson para convertir JSON a objetos Java
+            Gson gson = new Gson();
 
             // Leemos el JSON y lo convertimos a un objeto JsonObject
             JsonObject cliente = gson.fromJson(new InputStreamReader(inputStream), JsonObject.class);
