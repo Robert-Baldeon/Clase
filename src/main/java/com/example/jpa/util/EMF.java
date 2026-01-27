@@ -1,4 +1,4 @@
-package com.example.jpa.ejercicio_01.util;
+package com.example.jpa.util;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
