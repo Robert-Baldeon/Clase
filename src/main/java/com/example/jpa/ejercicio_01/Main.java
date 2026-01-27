@@ -37,7 +37,6 @@ public class Main {
             s1.getActividades().add(a1);
 
             // --- PASO B: GUARDAR (Persist) ---
-            // Gracias al CascadeType.ALL que pusimos en las entidades, 
             // al persistir el Socio y el Entrenador, se guardan sus relaciones.
             em.persist(e1); 
             em.persist(s1); 
