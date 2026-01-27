@@ -54,10 +54,9 @@ public class Socio implements Serializable {
      */
     @ManyToMany
     @JoinTable(
-        name = "inscripciones_actividades",
-        joinColumns = @JoinColumn(name = "id_socio"),
-        inverseJoinColumns = @JoinColumn(name = "id_actividad")
-    )
+    name = "inscripciones_actividades",
+    joinColumns = @JoinColumn(name = "id_socio"),
+    inverseJoinColumns = @JoinColumn(name = "id_actividad"))
     private List<Actividad> actividades = new ArrayList<>();
 
     // Constructor vacío obligatorio por JPA
