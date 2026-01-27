@@ -38,8 +38,6 @@ CREATE TABLE registro_consultas (
     id_mascota INT,
     id_consulta INT,
     PRIMARY KEY (id_mascota, id_consulta),
-    CONSTRAINT fk_reg_mascota FOREIGN KEY (id_mascota) REFERENCES
-    mascota(id),
-    CONSTRAINT fk_reg_consulta FOREIGN KEY (id_consulta) REFERENCES
-    consulta(id)
+    CONSTRAINT fk_reg_mascota FOREIGN KEY (id_mascota) REFERENCES mascota(id),
+    CONSTRAINT fk_reg_consulta FOREIGN KEY (id_consulta) REFERENCES consulta(id)
 );
