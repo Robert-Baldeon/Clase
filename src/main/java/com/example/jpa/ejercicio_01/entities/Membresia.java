@@ -1,7 +1,6 @@
 package com.example.jpa.ejercicio_01.entities;
 
 import java.io.Serializable;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,28 +9,36 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity // Marca la clase como entidad JPA
-@Table(name = "membresia") // Tabla "membresia" en la BD
+@Table(name = "membresia") // Mapea la tabla "membresia" en la BD
 public class Membresia implements Serializable {
-    // Serializable permite que esta entidad pueda ser convertida a bytes.
-    // Esto es útil si se guarda en caché, se envía por red o se usa en sesiones.
-
-    // Identificador de versión de la clase.
-    // Evita errores al deserializar si la clase cambia.
-    // Si no se pone, Java genera uno automáticamente, pero da warning.
-    private static final long serialVersionUID = 1L; // Control de serialización
+    
+    /*
+     * Serializable permite que esta entidad pueda ser convertida a bytes.
+     * Esto es útil para:
+     *  - Guardarla en caché
+     *  - Enviarla por red
+     *  - Usarla en sesiones de servidor
+     * Muchos frameworks (como Hibernate o Spring) recomiendan que las entidades sean serializables.
+     */
+    private static final long serialVersionUID = 1L; 
+    // Identificador de versión de la clase
+    // Ayuda a mantener compatibilidad al deserializar objetos si la clase cambia
+    // Si no se define, Java genera uno automáticamente pero da warning
 
     @Id // Clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment en MySQL
     private Long id;
 
-    @Column(name = "codigo_socio")
+    @Column(name = "codigo_socio") // Código del socio asociado a la membresía
     private String codigoSocio;
 
-    @Column(name = "tipo_plan")
+    @Column(name = "tipo_plan") // Tipo de plan: Mensual, Anual, Premium
     private String tipoPlan;
 
-    public Membresia() {} // Constructor vacío requerido por JPA
+    // Constructor vacío requerido por JPA
+    public Membresia() {}
 
+    // ===== GETTERS Y SETTERS =====
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
