@@ -1,6 +1,7 @@
 package com.example.jpa.ejercicio_02.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -41,20 +42,18 @@ public class Mascota implements Serializable {
     )
     private List<Consulta> consultas;
 
-    public Mascota() {}
+    public Mascota() {
+        this.consultas = new ArrayList<>();
+    }
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
-
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
-
     public String getEspecie() { return especie; }
     public void setEspecie(String especie) { this.especie = especie; }
-
     public HistorialMedico getHistorialMedico() { return historialMedico; }
     public void setHistorialMedico(HistorialMedico historialMedico) { this.historialMedico = historialMedico; }
-
     public List<Consulta> getConsultas() { return consultas; }
     public void setConsultas(List<Consulta> consultas) { this.consultas = consultas; }
 }

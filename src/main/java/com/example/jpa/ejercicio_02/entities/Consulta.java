@@ -1,6 +1,7 @@
 package com.example.jpa.ejercicio_02.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,15 +23,19 @@ public class Consulta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "motivo")
+    @Column(name = "motivo", length = 255)
     private String motivo;
 
-    @Column(name = "id_veterinario")
+    @ManyToOne
+    @JoinColumn(name = "id_veterinario")
     private Veterinario veterinario;
 
+    @ManyToMany(mappedBy = "consultas")
     private List<Mascota> pacientes;
 
-    public Consulta() {}
+    public Consulta() {
+        this.pacientes = new ArrayList<>();
+    }
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }

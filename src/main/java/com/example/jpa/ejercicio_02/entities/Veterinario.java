@@ -1,6 +1,7 @@
 package com.example.jpa.ejercicio_02.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -20,26 +21,25 @@ public class Veterinario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nombre")
+    @Column(name = "nombre", nullable = false, length = 100)
     private String nombre;
 
-    @Column(name = "num_colegiado")
+    @Column(name = "num_colegiado", length = 50)
     private String numColegiado;
 
     @OneToMany(mappedBy = "veterinario")
     private List<Consulta> consultasRealizadas;
 
-    public Veterinario() {}
+    public Veterinario() {
+        this.consultasRealizadas = new ArrayList<>();
+    }
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
-
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }
-
     public String getNumColegiado() { return numColegiado; }
     public void setNumColegiado(String numColegiado) { this.numColegiado = numColegiado; }
-
     public List<Consulta> getConsultasRealizadas() { return consultasRealizadas; }
     public void setConsultasRealizadas(List<Consulta> consultasRealizadas) { this.consultasRealizadas = consultasRealizadas; }
 }
