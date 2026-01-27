@@ -7,76 +7,93 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // Abrir conexión a la BD usando EntityManager
+        // Abrimos una conexión a la base de datos usando EntityManager
+        // try-with-resources asegura que el EntityManager se cierre automáticamente
         try (EntityManager em = EMF.getEntityManager()) {
-            // Comenzar la transacción
+
+            // Iniciamos la transacción
             em.getTransaction().begin();
 
-            // ----------------------
-            // PASO A: CREAR DATOS
-            // ----------------------
+            // =====================================================
+            // PASO A: CREACIÓN DE DATOS
+            // =====================================================
 
-            // 1:1 - Socio con Membresia
+            // ---------- Relación 1:1 (Socio - Membresía) ----------
+
+            // Creamos una membresía
             Membresia membresia = new Membresia();
-            membresia.setCodigoSocio("S-001"); // Código del socio
-            membresia.setTipoPlan("Premium");  // Tipo de plan
+            membresia.setCodigoSocio("S-001");     // Código identificador del socio
+            membresia.setTipoPlan("Premium");      // Tipo de plan
 
+            // Creamos un socio
             Socio socio = new Socio();
-            socio.setNombre("Alex Arch");
-            socio.setEmail("alex@arch.com");
-            socio.setMembresia(membresia); // Asociamos la membresía al socio
+            socio.setNombre("Alex Arch");           // Nombre del socio
+            socio.setEmail("alex@arch.com");        // Email del socio
+            socio.setMembresia(membresia);          // Asociamos la membresía al socio
 
-            // 1:N - Entrenador con Actividad
+            // ---------- Relación 1:N (Entrenador - Actividad) ----------
+
+            // Creamos un entrenador
             Entrenador entrenador = new Entrenador();
-            entrenador.setNombre("Carlos Trainer");
-            entrenador.setEspecialidad("Crossfit");
+            entrenador.setNombre("Carlos Trainer"); // Nombre del entrenador
+            entrenador.setEspecialidad("Crossfit"); // Especialidad
 
+            // Creamos una actividad
             Actividad actividad = new Actividad();
-            actividad.setNombreActividad("Sesión Mañana");
-            actividad.setEntrenador(entrenador); // Asignamos el entrenador a la actividad
+            actividad.setNombreActividad("Sesión Mañana"); // Nombre de la actividad
+            actividad.setEntrenador(entrenador);           // Asignamos el entrenador
 
-            // Mantener coherencia en memoria
-            entrenador.getActividadesDirigidas().add(actividad); // Entrenador conoce su actividad
+            // Mantenemos coherencia en memoria (lado inverso de la relación)
+            entrenador.getActividadesDirigidas().add(actividad);
 
-            // N:M - Inscribir Socio en Actividad
-            socio.getActividades().add(actividad);         // Socio conoce la actividad
-            actividad.getSociosInscritos().add(socio);     // Actividad conoce al socio
+            // ---------- Relación N:M (Socio - Actividad) ----------
 
-            // ----------------------
-            // PASO B: GUARDAR DATOS
-            // ----------------------
+            // Inscribimos al socio en la actividad
+            socio.getActividades().add(actividad);
+            actividad.getSociosInscritos().add(socio);
 
-            // Persistimos todas las entidades.
-            // Empezamos con Entrenador y Actividad para respetar FK
-            em.persist(entrenador);  // Guardamos entrenador
-            em.persist(actividad);  // Guardamos actividad
-            em.persist(socio);  // Guardamos socio junto con su membresía (cascade)
+            // =====================================================
+            // PASO B: PERSISTENCIA DE DATOS
+            // =====================================================
+
+            // Persistimos primero las entidades independientes
+            em.persist(membresia);    // Guardamos la membresía
+            em.persist(entrenador);   // Guardamos el entrenador
+            em.persist(actividad);    // Guardamos la actividad
+
+            // Finalmente persistimos el socio
+            em.persist(socio);
 
             // Confirmamos la transacción
             em.getTransaction().commit();
             System.out.println("Datos insertados correctamente.");
 
-            // ----------------------
-            // PASO C: CONSULTAR DATOS
-            // ----------------------
+            // =====================================================
+            // PASO C: CONSULTA DE DATOS
+            // =====================================================
 
             System.out.println("\n--- Lista de Socios y sus Planes ---");
-            // JPQL: obtener todos los socios
-            List<Socio> socios = em.createQuery("SELECT s FROM Socio s", Socio.class)
-                                   .getResultList();
 
-            // Mostramos nombre del socio y tipo de plan
+            // Consulta JPQL para obtener todos los socios
+            List<Socio> socios = em
+                    .createQuery("SELECT s FROM Socio s", Socio.class)
+                    .getResultList();
+
+            // Recorremos los socios y mostramos su nombre y plan
             for (Socio s : socios) {
-                System.out.println("Socio: " + s.getNombre() +
-                                   " | Plan: " + s.getMembresia().getTipoPlan());
+                System.out.println(
+                        "Socio: " + s.getNombre() +
+                        " | Plan: " + s.getMembresia().getTipoPlan()
+                );
             }
 
         } catch (Exception e) {
-            // Captura errores de persistencia o transacción
+            // Capturamos cualquier error de persistencia o transacción
             e.printStackTrace();
         } finally {
-            // Cerramos la fábrica de EntityManager al final de la aplicación
+            // Cerramos la fábrica de EntityManager al finalizar la aplicación
             EMF.close();
         }
     }
 }
+
