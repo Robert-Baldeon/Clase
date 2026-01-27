@@ -1,6 +1,7 @@
 package com.example.jpa.ejercicio_01.entities;
 
 import jakarta.persistence.*;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Actividad implements Serializable {
 
     @Id // Clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment MySQL
-    private Long id;
+    private Integer id;
 
     @Column(name = "nombre_actividad") // Nombre de la actividad
     private String nombreActividad;
@@ -54,7 +55,8 @@ public class Actividad implements Serializable {
     public Actividad() {}
 
     // ===== GETTERS Y SETTERS =====
-    public Long getId() { return id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public String getNombreActividad() { return nombreActividad; }
     public void setNombreActividad(String nombreActividad) { this.nombreActividad = nombreActividad; }

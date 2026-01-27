@@ -8,7 +8,6 @@ import java.util.List;
 @Entity // Marca la clase como entidad JPA
 @Table(name = "entrenador") // Mapea la tabla "entrenador" en la BD
 public class Entrenador implements Serializable {
-    
     /*
      * Serializable permite que esta entidad pueda ser convertida a bytes.
      * Esto es útil para:
@@ -24,7 +23,7 @@ public class Entrenador implements Serializable {
 
     @Id // Clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment MySQL
-    private Long id;
+    private Integer id;
 
     @Column(name = "nombre") // Nombre del entrenador
     private String nombre;
@@ -55,7 +54,8 @@ public class Entrenador implements Serializable {
     public Entrenador() {}
 
     // ===== GETTERS Y SETTERS =====
-    public Long getId() { return id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public String getNombre() { return nombre; }
     public void setNombre(String nombre) { this.nombre = nombre; }

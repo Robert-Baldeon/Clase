@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 @Entity // Marca la clase como entidad JPA
 @Table(name = "membresia") // Mapea la tabla "membresia" en la BD
 public class Membresia implements Serializable {
-    
     /*
      * Serializable permite que esta entidad pueda ser convertida a bytes.
      * Esto es útil para:
@@ -27,7 +26,7 @@ public class Membresia implements Serializable {
 
     @Id // Clave primaria
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment en MySQL
-    private Long id;
+    private Integer id;
 
     @Column(name = "codigo_socio") // Código del socio asociado a la membresía
     private String codigoSocio;
@@ -39,8 +38,8 @@ public class Membresia implements Serializable {
     public Membresia() {}
 
     // ===== GETTERS Y SETTERS =====
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
 
     public String getCodigoSocio() { return codigoSocio; }
     public void setCodigoSocio(String codigoSocio) { this.codigoSocio = codigoSocio; }
