@@ -1,7 +1,7 @@
 package com.example.jpa.ejercicio_01;
 
 import com.example.jpa.ejercicio_01.entities.*;
-import com.example.jpa.util.EMF;
+import com.example.jpa.ejercicio_01.util.EMF;
 
 import jakarta.persistence.EntityManager;
 import java.util.List;
