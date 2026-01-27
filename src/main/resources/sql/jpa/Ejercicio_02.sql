@@ -30,8 +30,7 @@ CREATE TABLE consulta (
     id INT AUTO_INCREMENT PRIMARY KEY,
     motivo VARCHAR(255),
     id_veterinario INT,
-    CONSTRAINT fk_consulta_veterinario FOREIGN KEY (id_veterinario)
-    REFERENCES veterinario(id)
+    CONSTRAINT fk_consulta_veterinario FOREIGN KEY (id_veterinario) REFERENCES veterinario(id)
 );
 
 CREATE TABLE registro_consultas (
