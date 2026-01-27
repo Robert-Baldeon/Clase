@@ -11,7 +11,6 @@ public class Main {
         // Abrimos una conexión a la base de datos usando EntityManager
         // try-with-resources asegura que el EntityManager se cierre automáticamente
         try (EntityManager em = EMF.getEntityManager()) {
-
             // Iniciamos la transacción
             em.getTransaction().begin();
 
