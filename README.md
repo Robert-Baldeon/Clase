@@ -2,7 +2,7 @@
 ## Ejercicio 1
 La ruta a los ficheros son:
 
-```sql
+```
 src/main/java/com/example/database/mongodb/
 ```
 
@@ -13,7 +13,7 @@ mvn exec:java -Dexec.mainClass="com.example.database.mongodb.Main"
 
 ## Ejercicio 2
 Para el ejercicio de leer el fichero json e insertar los datos en MongoDB, la ruta es la siguiente:
-```sql
+```
 src/main/java/com/example/database/mongodb/gson/
 ```
 Para probar que todo funciona, ejecuta estos dos comandos:
