@@ -1,4 +1,4 @@
-package com.example.jpa.util;
+package com.example.jpa.ejercicio_02.util;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -7,7 +7,7 @@ import jakarta.persistence.Persistence;
 // Clase de utilidad para gestionar el EntityManagerFactory (EMF)
 public class EMF {
     // Se crea una única instancia de la fábrica para toda la aplicación (Singleton)
-    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("UnidadMariaDB");
+    private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("UnidadVeterinaria");
 
     // Retorna un nuevo EntityManager para realizar operaciones en la base de datos
     // Es como pedirle una "conexión" individual a la fábrica
