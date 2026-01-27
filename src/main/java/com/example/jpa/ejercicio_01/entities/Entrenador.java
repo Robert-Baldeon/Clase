@@ -48,7 +48,6 @@ public class Entrenador implements Serializable {
      *  - Asegurarse que Actividad también sea Serializable (ya hecho)
      *  - Usar @SuppressWarnings("serial") para silenciar el warning
      */
-    @SuppressWarnings("serial")
     @OneToMany(mappedBy = "entrenador")
     private List<Actividad> actividadesDirigidas = new ArrayList<>();
 
@@ -67,4 +66,3 @@ public class Entrenador implements Serializable {
     public List<Actividad> getActividadesDirigidas() { return actividadesDirigidas; }
     public void setActividadesDirigidas(List<Actividad> actividadesDirigidas) { this.actividadesDirigidas = actividadesDirigidas; }
 }
-

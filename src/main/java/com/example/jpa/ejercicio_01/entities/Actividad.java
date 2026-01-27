@@ -47,7 +47,6 @@ public class Actividad implements Serializable {
      * Lista inicializada con ArrayList para evitar NullPointerException
      * Warning de serialización aparece por tener la lista dentro de una clase Serializable.
      */
-    @SuppressWarnings("serial")
     @ManyToMany(mappedBy = "actividades")
     private List<Socio> sociosInscritos = new ArrayList<>();
 
@@ -66,4 +65,3 @@ public class Actividad implements Serializable {
     public List<Socio> getSociosInscritos() { return sociosInscritos; }
     public void setSociosInscritos(List<Socio> sociosInscritos) { this.sociosInscritos = sociosInscritos; }
 }
-
