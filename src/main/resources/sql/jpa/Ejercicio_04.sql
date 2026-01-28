@@ -39,3 +39,25 @@ CREATE TABLE asignacion_reparaciones (
     CONSTRAINT fk_asig_reparacion FOREIGN KEY (id_reparacion) REFERENCES reparacion(id),
     CONSTRAINT fk_asig_mecanico FOREIGN KEY (id_mecanico) REFERENCES mecanico(id)
 );
+
+INSERT INTO ficha_tecnica (numero_bastidor, ultima_itv) VALUES
+('VF312345678901234', '2023-05-15'),
+('WBAAA111222333444', '2024-01-10'),
+('ZAR99988877766655', '2022-11-20'),
+('TMBJJJ00011122233', '2023-08-05'),
+('JM1GG444555666777', '2024-02-12');
+
+-- 2. Poblamos la tabla de Vehículos asociándolos a las fichas anteriores
+-- El id_ficha debe corresponder a un ID existente en la tabla ficha_tecnica
+INSERT INTO vehiculo (matricula, modelo, id_ficha) VALUES
+('1234-ABC', 'Peugeot 208', 1),
+('5678-DEF', 'BMW Serie 3', 2),
+('9012-GHI', 'Alfa Romeo Giulia', 3),
+('3456-JKL', 'Skoda Octavia', 4),
+('7890-MNP', 'Mazda CX-5', 5);
+
+-- 3. (Opcional) Poblamos algunos mecánicos para tener datos listos
+INSERT INTO mecanico (nombre, especialidad) VALUES
+('Ricardo Montaner', 'Electrónica'),
+('Sofía Loren', 'Chapa y Pintura'),
+('Marcos Automotriz', 'Motores Diésel');
