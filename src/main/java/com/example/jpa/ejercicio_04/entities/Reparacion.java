@@ -41,6 +41,7 @@ public class Reparacion {
     private List<Mecanico> mecanicos; // Relación N:M con Mecanico
 
     public Reparacion() { mecanicos = new ArrayList<>(); }
+
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
     public String getDescripcion() { return descripcion; }
