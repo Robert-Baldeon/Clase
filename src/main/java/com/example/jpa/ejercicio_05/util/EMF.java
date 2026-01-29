@@ -5,7 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class EMF {
-    private static final String PERSISTENCE_UNIT_NAME = "UnidadUsuario";
+    private static final String PERSISTENCE_UNIT_NAME = "UnidadUsuarios";
     private static EntityManagerFactory entityManagerFactory;
 
     public static EntityManager getEntityManager() {
