@@ -1,0 +1,8 @@
+CREATE DATABASE IF NOT EXISTS academia_db;
+USE academia_db;
+
+DROP TABLE IF EXISTS modulo;
+DROP TABLE IF EXISTS curso;
+DROP TABLE IF EXISTS alumno;
+DROP TABLE IF EXISTS direccion;
+DROP TABLE IF EXISTS alumno_curso;
