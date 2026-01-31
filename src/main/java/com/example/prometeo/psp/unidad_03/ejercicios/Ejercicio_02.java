@@ -18,12 +18,12 @@ class Contador {
         this.contador = contador;
     }
 
-    public int getContador() { return contador; }
-    public void setContador(int contador) { this.contador = contador; }
-
     public synchronized void incrementar() {
         contador++;
     }
+
+    public int getContador() { return contador; }
+    public void setContador(int contador) { this.contador = contador; }
 }
 
 public class Ejercicio_02 implements Runnable {
