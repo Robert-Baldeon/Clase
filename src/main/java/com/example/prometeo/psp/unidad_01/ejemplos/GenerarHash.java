@@ -1,4 +1,4 @@
-package com.example.prometeo.unidad_01.ejemplos;
+package com.example.prometeo.psp.unidad_01.ejemplos;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

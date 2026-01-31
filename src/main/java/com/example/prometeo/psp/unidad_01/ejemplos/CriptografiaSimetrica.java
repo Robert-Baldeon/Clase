@@ -3,7 +3,7 @@
 // Inicialízalo en ENCRYPT_MODE para cifrar un mensaje.
 // Luego, inicialízalo en DECRYPT_MODE para recuperar el mensaje original.
 
-package com.example.prometeo.unidad_01.ejemplos;
+package com.example.prometeo.psp.unidad_01.ejemplos;
 
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;

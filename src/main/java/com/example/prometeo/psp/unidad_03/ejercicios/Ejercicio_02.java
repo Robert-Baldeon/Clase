@@ -5,7 +5,7 @@
 // Inicia ambos hilos y espera a que terminen (usando el método join()). Imprime el valor final del contador. ¿Es 20,000? Ejecútalo varias veces. Verás que casi nunca lo es.
 // Ahora, simplemente añade la palabra synchronized al método incrementar(). Vuelve a ejecutar el programa. ¿Cuál es el resultado ahora? (Tiempo estimado: 40 minutos).
 
-package com.example.prometeo.unidad_03.ejercicios;
+package com.example.prometeo.psp.unidad_03.ejercicios;
 
 class Contador {
     private int contador;

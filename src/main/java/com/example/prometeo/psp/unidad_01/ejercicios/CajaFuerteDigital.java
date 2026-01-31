@@ -1,4 +1,4 @@
-package com.example.prometeo.unidad_01.ejercicios;
+package com.example.prometeo.psp.unidad_01.ejercicios;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

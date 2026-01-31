@@ -1,4 +1,4 @@
-package com.example.prometeo.unidad_01.ejemplos;
+package com.example.prometeo.psp.unidad_01.ejemplos;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

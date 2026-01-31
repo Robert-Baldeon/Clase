@@ -1,4 +1,4 @@
-package com.example.prometeo.unidad_03.ejemplos;
+package com.example.prometeo.psp.unidad_03.ejemplos;
 
 public class MiTarea implements Runnable {
     @Override
