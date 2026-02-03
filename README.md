@@ -18,6 +18,12 @@ Para el ejercicio de leer el fichero json e insertar los datos en MongoDB, la ru
 ```
 src/main/java/com/example/database/mongodb/gson/
 ```
+
+La ruta de los ficheros JSON que uso para leer e importar es la siguiente:
+```
+src/main/resources/json/
+```
+
 Para probar que todo funciona, ejecuta estos dos comandos:
 ```bash
 # Para leer e insertar un solo elemento json
