@@ -18,7 +18,7 @@ package com.example.prometeo.psp.unidad_03.ejercicios;
 
 public class Ejercicio_07 {
     public static void main(String[] args) {
-        Mostrador mostrador = new Mostrador();
+        Mostrador_01 mostrador = new Mostrador_01();
 
         Thread panadero = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
@@ -37,7 +37,7 @@ public class Ejercicio_07 {
     }
 }
 
-class Mostrador {
+class Mostrador_01 {
     private boolean hayPan = false;
 
     // Panadero entra aquí
