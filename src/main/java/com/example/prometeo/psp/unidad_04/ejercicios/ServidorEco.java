@@ -1,6 +1,11 @@
 // Objetivo: Escribir un servidor y cliente TCP “eco”.
 // Servidor: ServerSocket (p. ej., 5000), bucle infinito (accept()), lee una línea, la imprime y la devuelve, cierra el socket del cliente.
 
+// Toma el código del servidor de eco.
+// Crea ClientHandler implements Runnable → mueve la lógica de E/S al run().
+// En el bucle while(true) del servidor principal, tras accept(), crea un ClientHandler con el socket, luego un Thread y start().
+// Conecta varios clientes a la vez: ahora el servidor debe atenderlos simultáneamente.
+
 package com.example.prometeo.psp.unidad_04.ejercicios;
 
 import java.io.BufferedReader;
@@ -19,12 +24,7 @@ public class ServidorEco {
 
             while (true) {
                 // Se queda pausado aquí hasta que un cliente se conecta
-                try (
-                        Socket cliente = servidor.accept();
-                        BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
-                        PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true);
-                    ) {
-
+                try (Socket cliente = servidor.accept(); BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream())); PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true); ) {
                     while (true) {
                         // Leemos lo que envía el cliente
                         String mensaje = entrada.readLine();
@@ -34,7 +34,7 @@ public class ServidorEco {
                             salida.println("ECO: " + mensaje);
                         }
                     }
-                    }
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
