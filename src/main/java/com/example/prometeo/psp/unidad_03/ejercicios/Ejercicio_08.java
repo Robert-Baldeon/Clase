@@ -8,7 +8,7 @@ package com.example.prometeo.psp.unidad_03.ejercicios;
 
 public class Ejercicio_08 {
     public static void main(String[] args) {
-        Mostrador mostrador = new Mostrador();
+        Mostrador_02 mostrador = new Mostrador_02();
 
         Thread panadero = new Thread(() -> {
             for (int i = 0; i < 5; i++) {
@@ -27,7 +27,7 @@ public class Ejercicio_08 {
     }
 }
 
-class Mostrador {
+class Mostrador_02 {
     private int panes = 0;
     private static final int CAPACIDAD = 3;
 
