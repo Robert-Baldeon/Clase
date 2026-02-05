@@ -29,8 +29,19 @@ public class ClienteEco {
                 // Enviar al servidor
                 salida.println(mensaje);
 
+                if ("salir".equalsIgnoreCase(mensaje)) {
+                    System.out.println("Cerrando cliente...");
+                    break;
+                }
+
                 // Leer respuesta
                 String respuesta = entrada.readLine();
+
+                if (respuesta == null) {
+                    System.out.println("El servidor ha cortado la conexión");
+                    break;
+                }
+
                 System.out.println("Respuesta del servidor: " + respuesta);
             }
         } catch (IOException e) {
