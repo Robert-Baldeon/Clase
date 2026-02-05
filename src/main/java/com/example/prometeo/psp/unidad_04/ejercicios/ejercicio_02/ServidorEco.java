@@ -26,13 +26,14 @@ public class ServidorEco {
                 // Se queda pausado aquí hasta que un cliente se conecta
                 try (
                         Socket cliente = servidor.accept();
-                        BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));      
-                        PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true); 
+                        BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
+                        PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true);
                         ) {
                     while (true) {
                         // Leemos lo que envía el cliente
                         String mensaje = entrada.readLine();
 
+                        // Mostramos mensaje
                         if (mensaje != null) {
                             System.out.println("Cliente dice: " + mensaje);
 
