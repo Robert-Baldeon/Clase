@@ -1,7 +1,7 @@
 // Objetivo: Escribir un servidor y cliente TCP “eco”.
 // Cliente: Socket a localhost:5000, lee del teclado, envía, y muestra la respuesta.
 
-package com.example.prometeo.psp.unidad_04.ejercicios;
+package com.example.prometeo.psp.unidad_04.ejercicios.ejercicio_03;
 
 import java.io.BufferedReader;
 import java.io.IOException;

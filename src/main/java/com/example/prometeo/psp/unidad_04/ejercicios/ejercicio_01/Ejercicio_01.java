@@ -4,7 +4,7 @@
 // Servidor remoto por IP: A partir de una dirección IP conocida (por ejemplo, la de los DNS de Google: 8.8.8.8), obtén cuál es su nombre de host asociado
 // Múltiples direcciones: Google tiene muchas IPs. Usa el método adecuado para obtener todas las direcciones IP asociadas a www.google.com e imprímelas en un bucle
 
-package com.example.prometeo.psp.unidad_04.ejercicios;
+package com.example.prometeo.psp.unidad_04.ejercicios.ejercicio_01;
 
 import java.net.DatagramSocket;
 import java.net.Inet4Address;

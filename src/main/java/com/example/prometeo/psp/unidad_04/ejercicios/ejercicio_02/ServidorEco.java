@@ -6,7 +6,7 @@
 // En el bucle while(true) del servidor principal, tras accept(), crea un ClientHandler con el socket, luego un Thread y start().
 // Conecta varios clientes a la vez: ahora el servidor debe atenderlos simultáneamente.
 
-package com.example.prometeo.psp.unidad_04.ejercicios;
+package com.example.prometeo.psp.unidad_04.ejercicios.ejercicio_02;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,12 +24,18 @@ public class ServidorEco {
 
             while (true) {
                 // Se queda pausado aquí hasta que un cliente se conecta
-                try (Socket cliente = servidor.accept(); BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream())); PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true); ) {
+                try (
+                        Socket cliente = servidor.accept();
+                        BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));      
+                        PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true); 
+                        ) {
                     while (true) {
                         // Leemos lo que envía el cliente
                         String mensaje = entrada.readLine();
+
                         if (mensaje != null) {
                             System.out.println("Cliente dice: " + mensaje);
+
                             // Lo devolvemos desde el servidor (eco)
                             salida.println("ECO: " + mensaje);
                         }

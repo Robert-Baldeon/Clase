@@ -1,4 +1,4 @@
-package com.example.prometeo.psp.unidad_04.ejercicios;
+package com.example.prometeo.psp.unidad_04.ejercicios.ejercicio_03;
 
 import java.io.IOException;
 import java.net.ServerSocket;

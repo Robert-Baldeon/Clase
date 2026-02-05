@@ -3,7 +3,7 @@
 // En el bucle while(true) del servidor principal, tras accept(), crea un ClientHandler con el socket, luego un Thread y start().
 // Conecta varios clientes a la vez: ahora el servidor debe atenderlos simultáneamente.
 
-package com.example.prometeo.psp.unidad_04.ejercicios;
+package com.example.prometeo.psp.unidad_04.ejercicios.ejercicio_03;
 
 import java.io.BufferedReader;
 import java.io.IOException;
