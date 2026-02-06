@@ -1,4 +1,4 @@
-package com.example.prometeo.psp.unidad_04.ejemplos;
+package com.example.prometeo.psp.unidad_04.ejemplos.monohilo;
 
 import java.io.BufferedReader;
 import java.io.IOException;
