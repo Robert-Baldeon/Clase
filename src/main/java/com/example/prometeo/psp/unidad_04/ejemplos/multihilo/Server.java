@@ -16,7 +16,7 @@ class Server {
 
             // Server is listening on port 1234
             server = new ServerSocket(1234);
-            server.setReuseAddress(true);
+            server.setReuseAddress(true); // Para poder reutilizar el puerto en caso de reinicio del servidor
 
             // Running infinite loop for getting
             // Client request
