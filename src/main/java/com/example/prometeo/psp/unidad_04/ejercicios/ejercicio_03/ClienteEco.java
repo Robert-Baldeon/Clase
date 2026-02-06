@@ -17,8 +17,8 @@ public class ClienteEco {
 
         try (
                 Socket socket = new Socket(host, puerto);
-                PrintWriter salida = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                PrintWriter salida = new PrintWriter(socket.getOutputStream(), true);
                 Scanner teclado = new Scanner(System.in);
             ) {
 
