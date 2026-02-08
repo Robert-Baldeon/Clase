@@ -18,7 +18,7 @@ public class Client {
         try (
                 Socket cliente = new Socket(HOST, PUERTO);
                 BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
-                PrintWriter salida = new PrintWriter(cliente.getOutputStream());
+                PrintWriter salida = new PrintWriter(cliente.getOutputStream(), true);
                 Scanner teclado = new Scanner(System.in);
             ) {
 

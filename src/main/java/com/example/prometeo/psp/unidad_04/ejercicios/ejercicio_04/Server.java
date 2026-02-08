@@ -20,17 +20,7 @@ public class Server {
 
                 ClientHandler manejadorDeClientes = new ClientHandler(cliente);
 
-                Thread hiloCliente = new Thread(manejadorDeClientes);
-
-                hiloCliente.start();
-
-                try {
-                    hiloCliente.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-
-                System.out.println("Cliente desconectado");
+                new Thread(manejadorDeClientes).start();
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -22,23 +22,31 @@ public class ClientHandler implements Runnable {
 
             String mensaje;
 
-            while ((mensaje = entrada.readLine().toUpperCase()) != null) {
+            while ((mensaje = entrada.readLine()) != null) {
+                mensaje = mensaje.toUpperCase();
                 System.out.println("Mensaje: " + mensaje);
 
                 if ("SALIR".equals(mensaje)) {
                     break;
                 }
 
-                String strings[] = mensaje.split(":");
+                try {
+                    String strings[] = mensaje.split(":");
 
-                salida.println(
-                        switch (strings[0]) {
-                            case "SUMA", "+" -> Integer.parseInt(strings[1]) + Integer.parseInt(strings[2]);
-                            case "RESTA", "-" -> Integer.parseInt(strings[1]) - Integer.parseInt(strings[2]);
-                            case "MULTIPLICACION", "MULTIPLICACIÓN", "*" -> Integer.parseInt(strings[1]) * Integer.parseInt(strings[2]);
-                            case "DIVISION", "DIVISIÓN", "/" -> (Integer.parseInt(strings[2]) < 0) ? Integer.parseInt(strings[1]) - Integer.parseInt(strings[2]) : "El segundo número es negativo";
-                                                                                                                                                                   default -> "Argumento inválido";
-                        });
+                    int n1 = Integer.parseInt(strings[1]);
+                    int n2 = Integer.parseInt(strings[2]);
+
+                    salida.println(
+                            switch (strings[0]) {
+                                case "SUMA", "+" -> n1 + n2;
+                                case "RESTA", "-" -> n1 - n2;
+                                case "MULTIPLICACION", "MULTIPLICACIÓN", "*" -> n1 * n2;
+                                case "DIVISION", "DIVISIÓN", "/" -> (n2 != 0)  ? (n1 / n2) : "Error: División por cero";
+                                default -> "Argumento inválido";
+                            });
+                } catch (Exception e) {
+                    salida.println("Operación no soportada");
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
