@@ -1,4 +1,4 @@
-// Ejercicio 5: El "TryLock" con Tiempo (Evitando esperas infinitas)
+// Ejercicio 6: El "TryLock" con Tiempo (Evitando esperas infinitas)
 // A diferencia de synchronized, ReentrantLock nos permite intentar coger el cerrojo pero rendirnos si pasa demasiado tiempo. Esto es vital para que una aplicación no se quede "congelada".
 // Escenario: El Servidor de Base de Datos
 // Crea una clase BaseDeDatos con un ReentrantLock.

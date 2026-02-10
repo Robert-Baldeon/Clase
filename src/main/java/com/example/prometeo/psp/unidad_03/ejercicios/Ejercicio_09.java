@@ -1,4 +1,4 @@
-// Reto 01: El Corredor de Maratón (Básico)
+// Reto : El Corredor de Maratón (Básico)
 
 // Objetivo: Entender la creación de hilos y el comportamiento asíncrono
 // Crea una clase Corredor que implemente Runnable
