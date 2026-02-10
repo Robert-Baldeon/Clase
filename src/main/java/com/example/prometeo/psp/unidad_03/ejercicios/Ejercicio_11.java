@@ -31,15 +31,15 @@ package com.example.prometeo.psp.unidad_03.ejercicios;
 
 public class Ejercicio_11 {
     public static void main(String[] args) {
-        Impresora impresora = new Impresora();
-        Thread hiloEmpleado1 = new Thread(new Empleado("Robert", impresora));
-        Thread hiloEmpleado2 = new Thread(new Empleado("Gian", impresora));
-        Thread hiloEmpleado3 = new Thread(new Empleado("Alan", impresora));
-        Thread hiloEmpleado4 = new Thread(new Empleado("Juan", impresora));
-        Thread hiloEmpleado5 = new Thread(new Empleado("Bryan", impresora));
-        Thread hiloEmpleado6 = new Thread(new Empleado("Adrián", impresora));
+        Impresora_01 impresora = new Impresora_01();
+        Thread hiloEmpleado1 = new Thread(new Empleado_01("Robert", impresora));
+        Thread hiloEmpleado2 = new Thread(new Empleado_01("Gian", impresora));
+        Thread hiloEmpleado3 = new Thread(new Empleado_01("Alan", impresora));
+        Thread hiloEmpleado4 = new Thread(new Empleado_01("Juan", impresora));
+        Thread hiloEmpleado5 = new Thread(new Empleado_01("Bryan", impresora));
+        Thread hiloEmpleado6 = new Thread(new Empleado_01("Adrián", impresora));
 
-        Thread hiloTecnico = new Thread(new Tecnico());
+        Thread hiloTecnico = new Thread(new Tecnico_01(impresora));
 
         hiloEmpleado1.start();
         hiloEmpleado2.start();
@@ -51,7 +51,7 @@ public class Ejercicio_11 {
     }
 }
 
-class Impresora {
+class Impresora_01 {
     private int toner = 3;
 
     public synchronized void imprimir(String nombreEmpleado) {
@@ -73,7 +73,7 @@ class Impresora {
         }
     }
 
-    public void recargar() {
+    public synchronized void recargar() {
         toner = 3;
 
         System.out.println("--- IMPRESORA RECARGADA ---");
@@ -84,11 +84,11 @@ class Impresora {
     public void setToner(int toner) { this.toner = toner; }
 }
 
-class Empleado implements Runnable {
+class Empleado_01 implements Runnable {
     private String nombreEmpleado;
-    private Impresora impresora;
+    private Impresora_01 impresora;
 
-    public Empleado(String nombreEmpleado, Impresora impresora) {
+    public Empleado_01(String nombreEmpleado, Impresora_01 impresora) {
         this.nombreEmpleado = nombreEmpleado;
         this.impresora = impresora;
     }
@@ -98,15 +98,19 @@ class Empleado implements Runnable {
         impresora.imprimir(nombreEmpleado);
     }
 
-    public Impresora getImpresora() { return impresora; }
-    public void setImpresora(Impresora impresora) { this.impresora = impresora; }
+    public Impresora_01 getImpresora() { return impresora; }
+    public void setImpresora(Impresora_01 impresora) { this.impresora = impresora; }
     public String getNombreEmpleado() { return nombreEmpleado; }
     public void setNombreEmpleado(String nombreEmpleado) { this.nombreEmpleado = nombreEmpleado; }
 
 }
 
-class Tecnico implements Runnable {
-    private Impresora impresora;
+class Tecnico_01 implements Runnable {
+    private Impresora_01 impresora;
+
+    public Tecnico_01(Impresora_01 impresora) {
+        this.impresora = impresora;
+    }
 
     @Override
     public void run() {
@@ -119,6 +123,6 @@ class Tecnico implements Runnable {
         impresora.recargar();
     }
 
-    public Impresora getImpresora() { return impresora; }
-    public void setImpresora(Impresora impresora) { this.impresora = impresora; }
+    public Impresora_01 getImpresora() { return impresora; }
+    public void setImpresora(Impresora_01 impresora) { this.impresora = impresora; }
 }
