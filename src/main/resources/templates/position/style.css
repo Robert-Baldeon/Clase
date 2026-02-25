@@ -1,0 +1,49 @@
+/* Contenedor del párrafo */
+.contenedor {
+    position: relative; /* IMPORTANTE */
+    width: 400px;
+    margin: 50px auto;
+}
+
+/* Palabra que activa el tooltip */
+.tooltip-palabra {
+    position: relative;
+    color: blue;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Tooltip oculto por defecto */
+.tooltip-texto {
+    position: absolute;
+    bottom: 125%; /* Lo coloca arriba */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    visibility: hidden; /* Oculto */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Flechita del tooltip */
+.tooltip-texto::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+/* Mostrar tooltip al pasar el cursor */
+.tooltip-palabra:hover .tooltip-texto {
+    visibility: visible;
+    opacity: 1;
+}
