@@ -1,0 +1,66 @@
+@import url(<https://fonts.googleapis.com/css?family=Dosis:300>);
+*
+* {
+  margin: 0;
+  padding: 0;
+  border: 0 none;
+  position: relative;
+}
+
+html, body {
+  background: #164C88;
+  font-family: Dosis;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #F6FAFD;
+}
+
+body {
+  padding: 1rem;
+}
+
+.ejemplo {
+  text-align: center;
+}
+
+.width {
+  width: 45%;
+  background: #F9D237;
+  position: relative;
+  display: inline-block;
+  margin: 1%;
+  vertical-align: top;
+  box-shadow: 0 0 4px rgba(0,0,0,.3);
+}
+
+.width:before {
+  content: '';
+  display: block;
+}
+
+.ratio1-1:before {
+  padding-top: 100%;
+}
+
+.ratio2-1:before {
+  padding-top: 50%;
+}
+
+.ratio4-3:before {
+  padding-top: 75%;
+}
+
+.ratio16-9:before {
+  padding-top: 56.25%;
+}
+
+.contenido {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  font-size: 1.5rem;
+  color: #444;
+}
+
+a {
+  color: #F9D237
+}
