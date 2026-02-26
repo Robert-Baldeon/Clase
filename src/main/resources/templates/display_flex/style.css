@@ -1,0 +1,50 @@
+header {
+  display: flex;
+  padding: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+}
+
+header > nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  list-style: none;
+}
+
+a {
+  color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+div {
+  background-color: aqua;
+  width: 60px;
+  height: 60px;
+}
+
+.menu {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  header > nav {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+}
