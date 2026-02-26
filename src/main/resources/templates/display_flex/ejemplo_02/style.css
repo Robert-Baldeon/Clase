@@ -1,0 +1,116 @@
+/* =========================
+   FUENTE
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* =========================
+   RESET GLOBAL
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+:root {
+  --rtc-primary-color: #1090CB;
+  --rtc-secondary-color: #000000;
+  --rtc-tertiary-color: #FFFFFF;
+  --rtc-background-color: #1090CB2B;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+#hero {
+  background-color: var(--rtc-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-height: 100svh;
+  padding: 50px;
+}
+
+
+/* =========================
+   COLUMNA IZQUIERDA
+========================= */
+.info {
+  width: 40%;
+  min-width: 516px;
+}
+
+.info > h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.info > h1 > span {
+  color: var(--rtc-primary-color);
+}
+
+
+/* =========================
+   COLUMNA DERECHA (IMAGEN)
+========================= */
+#hero > img {
+  width: 30%;
+  max-width: 500px;
+  min-width: 300px;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+.buttons {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 15px 25px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Botón primario */
+.buttons > button:first-child {
+  background-color: var(--rtc-primary-color);
+  color: var(--rtc-tertiary-color);
+  border: 1px solid var(--rtc-primary-color);
+}
+
+/* Botón secundario */
+.buttons > button:last-child {
+  background-color: var(--rtc-tertiary-color);
+  color: var(--rtc-primary-color);
+  border: 1px solid var(--rtc-primary-color);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 570px) {
+
+  .info {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .info > h1 {
+    font-size: 30px;
+  }
+
+}
