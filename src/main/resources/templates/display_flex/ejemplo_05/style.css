@@ -10,7 +10,8 @@
   justify-content: space-between;
 }
 
-header, footer {
+header,
+footer {
   height: 10vh;
   background-color: crimson;
 }
@@ -20,7 +21,8 @@ main {
   background-color: green;
 }
 
-nav, aside {
+nav,
+aside {
   flex: 1;
 }
 
@@ -29,7 +31,9 @@ nav, aside {
     flex-direction: column;
   }
 
-  main, nav, aside {
+  main,
+  nav,
+  aside {
     flex: auto;
   }
 }
