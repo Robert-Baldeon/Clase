@@ -1,0 +1,185 @@
+@import url("<https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap>");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  font-weight: 900;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  cursor: crosshair;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+img {
+  width: 6rem;
+  transition: all 0.3s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+/* FILTERS */
+
+/* BLUR */
+.no-blur {
+  filter: blur(0px);
+}
+
+.some-blur {
+  filter: blur(2px);
+}
+
+.much-blur {
+  filter: blur(5px);
+}
+
+/* CONTRAST */
+.no-contrast {
+  filter: contrast(10%);
+}
+
+.some-contrast {
+  filter: contrast(50%);
+}
+
+.much-contrast {
+  filter: contrast(100%);
+}
+
+/* GRAYSCALE */
+.no-grayscale {
+  filter: grayscale(0%);
+}
+
+.some-grayscale {
+  filter: grayscale(50%);
+}
+
+.much-grayscale {
+  filter: grayscale(100%);
+}
+
+/* HUE-ROTATE */
+.no-hue {
+  filter: hue-rotate(0deg);
+}
+
+.some-hue {
+  filter: hue-rotate(60deg);
+}
+
+.much-hue {
+  filter: hue-rotate(120deg);
+}
+
+/* INVERT */
+.no-invert {
+  filter: invert(0%);
+}
+
+.some-invert {
+  filter: invert(50%);
+}
+
+.much-invert {
+  filter: invert(100%);
+}
+
+/* OPACITY */
+.no-opacity {
+  filter: opacity(0%);
+}
+
+.some-opacity {
+  filter: opacity(50%);
+}
+
+.much-opacity {
+  filter: opacity(100%);
+}
+
+/* BRIGHTNESS */
+.no-brightness {
+  filter: brightness(0%);
+}
+
+.some-brightness {
+  filter: brightness(50%);
+}
+
+.much-brightness {
+  filter: brightness(100%);
+}
+
+/* SATURATE */
+.no-saturate {
+  filter: saturate(0%);
+}
+
+.some-saturate {
+  filter: saturate(100%);
+}
+
+.much-saturate {
+  filter: saturate(150%);
+}
+
+/* SEPIA */
+.no-sepia {
+  filter: sepia(0%);
+}
+
+.some-sepia {
+  filter: sepia(50%);
+}
+
+.much-sepia {
+  filter: sepia(100%);
+}
+
+/* DROP SHADOW */
+.no-shadow {
+  filter: drop-shadow(0px 0px 0px black);
+}
+
+.some-shadow {
+  filter: drop-shadow(5px 5px 5px black);
+}
+
+.much-shadow {
+  filter: drop-shadow(16px 16px 10px black);
+}
+
+/* COMBINED */
+.first-combined {
+  filter: brightness(90%) hue-rotate(120deg);
+}
+
+.second-combined {
+  filter: sepia(50%) drop-shadow(5px 5px 0px crimson);
+}
+
+.third-combined {
+  filter: brightness(0%) blur(4px);
+}
