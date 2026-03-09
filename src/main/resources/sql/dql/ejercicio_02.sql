@@ -78,11 +78,17 @@ GROUP BY idCine;
 
 --Sobre BDHoteles ejecuta las consultas que:
 
--- 13. Devuelva todos los registros de habitación con los m2 incrementados en 10
+-- 13. Devuelva todos los registros de habitación con los m2 incrementados en 10.
 
-SELECT 
+SELECT idHotel, idHabitacion, m2 + 10 AS m2_incrementados, precio, camas
+FROM habitacion;
 
-14. Devuelva aquellos registros cuyos m2 divididos entre 2 resulten en un valor > 15
+-- 14. Devuelva aquellos registros cuyos m2 divididos entre 2 resulten en un valor > 15.
+
+SELECT *
+FROM habitacion
+WHERE m2 / 2 > 15;
+
 15. Devuelva los registros con el número de camas duplicado para aquellos hoteles
 con idhotel >2
 16. Devuelva los registros de las habitaciones con dos camas o más aplicando un
