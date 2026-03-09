@@ -101,3 +101,16 @@ FROM (
   LIMIT 8
 ) AS ultimos
 ORDER BY nombreCine ASC;
+
+-- 14. Selecciona el nombre y población de los cines que tienen en su nombre la secuencia ‘ABC’ o que son de Gandía.
+
+SELECT nombreCine, poblacionCine
+FROM cine
+WHERE nombreCine LIKE '%ABC%'
+  OR poblacionCine = 'Gandia';
+
+-- 15. Indica cuántos cines tienen el nombre acabado en ‘o’.
+
+SELECT COUNT(*)
+FROM cine
+WHERE nombreCine LIKE '%o';
