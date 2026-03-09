@@ -69,3 +69,11 @@ ORDER BY poblacionCine ASC, nombreCine ASC;
 SELECT COUNT(*)
 FROM cine
 WHERE poblacionCine = 'Valencia';
+
+-- 11. Selecciona nombre y población de los 5 primeros cines, considerando el orden por id, cuyo nombre empieza por ‘cine’
+
+SELECT nombreCine, poblacionCine
+FROM cine
+WHERE nombreCine LIKE 'Cine%'
+ORDER By idCine
+LIMIT 5;
