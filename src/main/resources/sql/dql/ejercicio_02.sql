@@ -89,24 +89,115 @@ SELECT *
 FROM habitacion
 WHERE m2 / 2 > 15;
 
-15. Devuelva los registros con el número de camas duplicado para aquellos hoteles
-con idhotel >2
-16. Devuelva los registros de las habitaciones con dos camas o más aplicando un
-descuento del 10% sobre el precio (añade una columna con el precio con
-descuento)
-17. Devuelva las habitaciones con tamaño mayor a 35m2 con el precio duplicado.
-18. Habitaciones que tienen menos de 35 m2 con precio mayor o igual a 50€
-19. Precio máximo de las habitaciones agrupadas por número de camas
-20. Precio mínimo de las habitaciones agrupadas por número de camas
-3
-21. Media del precio de las habitaciones por hotel
-22. Media del precio de las habitaciones por hotel de aquellas habitaciones que
-tienen más de 1 cama.
-23. Cuántas camas hay en total considerando las que se encuentran en
-habitaciones de más de 30m2
-24. ¿Cuántas camas hay por hotel?
-25. ¿En qué hotel (id) se encuentra la habitación más barata?
-26. ¿En qué hotel (id) se encuentra la habitación de mayor tamaño?
-27. Habitaciones que tienen número de camas par.
-28. ¿Cuántas habitaciones con número de camas impar tiene cada hotel?
-29. Suma del precio de todas las habitaciones agrupando por hotel.
+-- 15. Devuelva los registros con el número de camas duplicado para aquellos hoteles con idhotel > 2.
+
+SELECT idHotel, camas, COUNT(*) AS numHabitaciones
+FROM habitacion
+WHERE idHotel > 2
+GROUP BY idHotel, camas
+HAVING COUNT(*) > 1;
+
+-- 16. Devuelva los registros de las habitaciones con dos camas o más aplicando un descuento del 10% sobre el precio (añade una columna con el precio con descuento).
+
+SELECT idHotel, idHabitacion, m2, precio - precio * 0.10 AS descuento, camas
+FROM habitacion
+WHERE camas >= 2;
+
+-- 17. Devuelva las habitaciones con tamaño mayor a 35m2 con el precio duplicado.
+
+SELECT idHotel, precio, COUNT(*) AS numHabitaciones
+FROM habitacion
+WHERE m2 > 35             -- Solo habitaciones mayores que 35m2
+GROUP BY idHotel, precio  -- Agrupa por hotel y precio, para encontrar duplicados dentro de un hotel (o puedes quitar idHotel si quieres duplicados globales)
+HAVING COUNT(*) > 1;      -- Filtra aquellos precios que aparecen más de una vez, es decir, duplicados
+
+-- 18. Habitaciones que tienen menos de 35 m2 con precio mayor o igual a 50€.
+
+SELECT *
+FROM habitacion
+WHERE m2 < 35
+  AND precio >= 50;
+
+-- 19. Precio máximo de las habitaciones agrupadas por número de camas.
+
+SELECT camas, MAX(precio) AS precioMaximo
+FROM habitacion
+GROUP BY camas;
+
+-- 20. Precio mínimo de las habitaciones agrupadas por número de camas.
+
+SELECT camas, MIN(Precio) AS precioMinimo
+FROM habitacion
+GROUP BY camas;
+
+-- 21. Media del precio de las habitaciones por hotel.
+
+SELECT idHotel, AVG(precio) AS mediaPrecio
+FROM habitacion
+GROUP BY idHotel;
+
+-- 22. Media del precio de las habitaciones por hotel de aquellas habitaciones que tienen más de 1 cama.
+
+SELECT idHotel, AVG(precio) AS mediaPrecio
+FROM habitacion
+WHERE camas > 1;
+GROUP BY idHotel;
+
+-- 23. Cuántas camas hay en total considerando las que se encuentran en habitaciones de más de 30m2.
+
+SELECT SUM(camas) AS totalCamas
+FROM habitacion
+WHERE m2 > 30;
+
+-- 24. ¿Cuántas camas hay por hotel?
+
+SELECT SUM(camas) AS totalCamas
+FROM habitacion
+GROUP BY idHotel;
+
+-- 25. ¿En qué hotel (id) se encuentra la habitación más barata?
+
+SELECT idHotel
+FROM habitacion
+WHERE precio = (
+  SELECT min(precio)
+  FROM habitacion
+);
+
+SELECT idHotel
+FROM habitacion
+ORDER BY precio ASC
+LIMIT 1;
+
+-- 26. ¿En qué hotel (id) se encuentra la habitación de mayor tamaño?
+
+SELECT idHotel
+FROM habitacion
+WHERE m2 = (
+  SELECT MAX(m2)
+  FROM habitacion
+);
+
+SELECT idhotel
+FROM habitacion
+ORDER BY m2 DESC
+LIMIT 1;
+
+-- 27. Habitaciones que tienen número de camas par.
+
+SELECT *
+FROM habitacion
+WHERE camas % 2 = 0;
+
+-- 28. ¿Cuántas habitaciones con número de camas impar tiene cada hotel?
+
+SELECT idHotel, COUNT(*) AS numHabitaciones
+FROM habitacion
+WHERE camas % 2 != 0
+GROUP BY idHotel;
+
+-- 29. Suma del precio de todas las habitaciones agrupando por hotel.
+
+SELECT idHotel, sum(precio) AS totalPrecio
+FROM habitacion
+GROUP BY idHotel;
