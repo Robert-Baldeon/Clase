@@ -1,7 +1,7 @@
 /* =============================================================================
-   BASE DE DATOS: BDHOTELES
-   Descripción: Gestión de una cadena de hoteles, personal y reservas.
-   ============================================================================= */
+BASE DE DATOS: BDHOTELES
+Descripción: Gestión de una cadena de hoteles, personal y reservas.
+============================================================================= */
 
 CREATE DATABASE IF NOT EXISTS BDHOTELES;
 USE BDHOTELES;
@@ -130,16 +130,16 @@ ALTER TABLE reserva MODIFY idReserva int(11) NOT NULL AUTO_INCREMENT;
 
 -- Un empleado pertenece a un hotel existente
 ALTER TABLE empleado
-  ADD CONSTRAINT empleado_hotel FOREIGN KEY (idHotel) REFERENCES hotel (idHotel) 
-  ON UPDATE CASCADE;
+ADD CONSTRAINT empleado_hotel FOREIGN KEY (idHotel) REFERENCES hotel (idHotel) 
+ON UPDATE CASCADE;
 
 -- Una habitación pertenece a un hotel existente
 ALTER TABLE habitacion
-  ADD CONSTRAINT habitacion_hotel FOREIGN KEY (idHotel) REFERENCES hotel (idHotel) 
-  ON UPDATE CASCADE;
+ADD CONSTRAINT habitacion_hotel FOREIGN KEY (idHotel) REFERENCES hotel (idHotel) 
+ON UPDATE CASCADE;
 
 -- La reserva debe apuntar a un cliente y a una habitación válida (doble referencia)
 ALTER TABLE reserva
-  ADD CONSTRAINT reserva_cliente FOREIGN KEY (idCliente) REFERENCES cliente (idCliente) ON UPDATE CASCADE,
-  ADD CONSTRAINT reserva_habitacion FOREIGN KEY (idHotel, idHabitacion) REFERENCES habitacion (idHotel, idHabitacion) 
-  ON UPDATE CASCADE;
+ADD CONSTRAINT reserva_cliente FOREIGN KEY (idCliente) REFERENCES cliente (idCliente) ON UPDATE CASCADE,
+ADD CONSTRAINT reserva_habitacion FOREIGN KEY (idHotel, idHabitacion) REFERENCES habitacion (idHotel, idHabitacion) 
+ON UPDATE CASCADE;
