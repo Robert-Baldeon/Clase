@@ -47,3 +47,19 @@ WHERE idCine > 32
   AND poblacionCine LIKE '%e%e%'
 ORDER BY poblacionCine DESC, nombreCine ASC;
 
+-- 8. Selecciona las distintas poblaciones de los cines que tienen en su nombre una ‘u’ seguida de cualquier carácter y a continuación una ‘a’ (ejemplos: ura, una, upa…).
+-- Muestra únicamente los 2 primeros registros que cumplen con las condiciones.
+
+SELECT DISTINCT poblacionCine
+FROM cine
+WHERE nombreCine LIKE '%u_a%'
+LIMIT 2;
+
+-- 9. Selecciona población, cine e id de los cines cuyo id es mayor que 30 y que son de Sagunto o tienen en su nombre la secuencia de caracteres ‘ca’.
+-- Ordena el resultado por población y cine, ambas de forma ascendente
+
+SELECT poblacionCine, nombreCine, idCine
+FROM cine
+WHERE idCine > 30
+  AND (poblacionCine = 'Sagunto' OR poblacionCine LIKE '%ca%')
+ORDER BY poblacionCine ASC, nombreCine ASC;
