@@ -63,3 +63,9 @@ FROM cine
 WHERE idCine > 30
   AND (poblacionCine = 'Sagunto' OR poblacionCine LIKE '%ca%')
 ORDER BY poblacionCine ASC, nombreCine ASC;
+
+-- 10. Realiza la consulta para obtener cuántos cines hay en Valencia.
+
+SELECT COUNT(*)
+FROM cine
+WHERE poblacionCine = 'Valencia';
