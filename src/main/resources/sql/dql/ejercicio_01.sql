@@ -1,0 +1,49 @@
+-- 1. Selecciona el nombre de los cines de Valencia
+
+SELECT nombreCine
+FROM cine
+WHERE poblacionCine = 'Valencia';
+
+-- 2. Selecciona nombre e id de los cines de Cullera o Gandia
+
+SELECT nombreCine, idCine
+FROM cine
+WHERE poblacionCine IN ('Cullera', 'Gandia');
+
+-- 3. Selecciona nombre y población de los cines con id menor que 10 o id mayor que 30
+
+SELECT nombreCine, poblacionCine
+FROM cine
+WHERE idCine < 10 OR idCine > 30;
+
+-- 4. Selecciona el nombre y población de los cines cuyo nombre empieza por ‘C’.
+-- Muestra el resultado ordenado por población
+
+SELECT nombreCine, poblacionCine
+FROM cine
+WHERE nombreCine LIKE 'C%'
+ORDER BY poblacionCine;
+
+-- 5. Selecciona la población de los cines cuyo nombre termina en ‘a’.
+-- Muestra el resultado ordenado por población de forma descendente
+
+SELECT poblacionCine
+FROM cine
+WHERE nombreCine LIKE '%a'
+ORDER BY poblacionCine DESC;
+
+-- 6. Selecciona todos los datos de la tabla cine para los cines con id comprendido entre 8 y 15
+
+SELECT *
+FROM cine
+WHERE idCine BETWEEN 8 AND 15;
+
+-- 7. Selecciona el nombre y población de los cines con id mayor que 32 que tengan en el nombre de la población al menos una ‘o’ y al menos dos ‘e’ en el nombre.
+-- Muestra el resultado ordenado por población de forma descendente y nombre de forma ascendente.
+SELECT nombreCine, poblacionCine
+FROM cine
+WHERE idCine > 32
+  AND poblacionCine LIKE '%o%'
+  AND poblacionCine LIKE '%e%e%'
+ORDER BY poblacionCine DESC, nombreCine ASC;
+
