@@ -18,7 +18,8 @@ CREATE TABLE cliente (
 
 -- 3. Añade una restricción UNIQUE (UQ_Cliente_email) a la columna email en la tabla Cliente.
 
-ALTER TABLE cliente ADD CONSTRAINT UQ_Cliente_email UNIQUE (email);
+ALTER TABLE cliente
+ADD CONSTRAINT UQ_Cliente_email UNIQUE (email);
 
 -- 4. Crear la tabla Producto con las columnas:
 -- producto_id (entero, clave primaria, autonumérico).
@@ -70,17 +71,17 @@ ADD COLUMN telefono VARCHAR(15);
 -- 8. Modifica el tipo de dato de la columna stock en la tabla Producto a tipo smallint
 
 ALTER TABLE producto
-MODIFY stock SMALLINT;
+MODIFY stock SMALLINT NOT NULL;
 
 -- 9. Modifica la columna telefono en la tabla Cliente para que no pueda ser nula (NOT NULL).
 
 ALTER TABLE cliente
-MODIFY telefono NOT NULL;
+MODIFY telefono VARCHAR(15) NOT NULL;
 
 -- 10. Cambia el nombre de la columna nombre a nombre_completo en la tabla Cliente.
 
 ALTER TABLE cliente
-RENAME nombre to nombre_completo;
+RENAME COLUMN nombre to nombre_completo;
 
 -- 11. Elimina la columna fecha_registro de la tabla Cliente.
 
@@ -96,18 +97,22 @@ ADD COLUMN metodo_pago INT;
 
 CREATE TABLE MetodoPago (
   metodo_id INT PRIMARY KEY AUTO_INCREMENT,
-  nombre_metodo VARCHAR(50),
+  nombre_metodo VARCHAR(50) NOT NULL
 );
+
+ALTER TABLE pedido
+ADD CONSTRAINT FK_Pedidos_metodo_pago
+FOREIGN KEY (metodo_pago) REFERENCES MetodoPago(metodo_id);
 
 -- 13. Elimina la clave foránea FK_Pedidos_metodo_pago de la tabla Pedido.
 
 ALTER TABLE pedido
-DROP CONSTRAINT FK_Pedidos_metodo_pago;
+DROP FOREIGN KEY FK_Pedidos_metodo_pago;
 
 -- 14. Elimina la restricción UNIQUE de la columna email en la tabla Cliente.
 
 ALTER TABLE cliente
-DROP CONSTRAINT UNIQUE;
+DROP INDEX UQ_Cliente_email;
 
 -- 15. Elimina la tabla DetallePedido
 
