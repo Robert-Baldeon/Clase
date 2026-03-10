@@ -36,43 +36,43 @@ CREATE TABLE Ciclo (
   PRIMARY KEY (CodCF)
 );
 
-CREATE TABLE Asignatura(
+CREATE TABLE Asignatura (
   codAsig INT(3) ,
   Nombre VARCHAR(128) NOT NULL,
   numHoras INT(3)  NOT NULL,
   B CHAR(1) NOT NULL, 
-  codCF INT(2)  NOT NULL,
+  codCF INT(2) NOT NULL,
   PRIMARY KEY (codAsig),
   FOREIGN KEY (codCF) REFERENCES Ciclo(codCF)
 );
 
-CREATE TABLE Matricula(
+CREATE TABLE Matricula (
   codMatr INT(7) ,
-  dni varchar(8)  NOT NULL,
-  curso INT(4)  NOT NULL,
+  dni varchar(8) NOT NULL,
+  curso INT(4) NOT NULL,
   PRIMARY KEY (codMatr),
   FOREIGN KEY (dni) REFERENCES Alumno(dni)
 );
 
-CREATE TABLE Imparte(
-  codAsig INT(3) not null  ,
-  curso INT(4)  NOT NULL,
-  dni varchar(8)  NOT NULL,
+CREATE TABLE Imparte (
+  codAsig INT(3) NOT NULL,
+  curso INT(4) NOT NULL,
+  dni varchar(8) NOT NULL,
   PRIMARY KEY (codAsig,curso,dni),
   FOREIGN KEY (dni) REFERENCES Profesor(dni),
   FOREIGN KEY (codAsig) REFERENCES Asignatura(codAsig)
 );
 
-CREATE TABLE LineaMatricula(
-  codMatr INT(7) ,
-  codAsig INT(3) ,
+CREATE TABLE LineaMatricula (
+  codMatr INT(7),
+  codAsig INT(3),
   nota DECIMAL(2,1), 
-  PRIMARY KEY (codMatr,codAsig),
-  FOREIGN KEY (codMatr) REFERENCES Matricula(codMatr),
-  FOREIGN KEY (codAsig) REFERENCES Asignatura(codAsig)
+  PRIMARY KEY (codMatr, codAsig),
+  FOREIGN KEY (codMatr) REFERENCES Matricula (codMatr),
+  FOREIGN KEY (codAsig) REFERENCES Asignatura (codAsig)
 );
 
-CREATE TABLE Contrato(
+CREATE TABLE Contrato (
   codCont INT(6) ,
   dni varchar(8)  NOT NULL,
   curso INT(4)  NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE Contrato(
   FOREIGN KEY (dni) REFERENCES Profesor(dni)
 );
 
-CREATE TABLE LineaContrato(
+CREATE TABLE LineaContrato (
   codCont INT(6) ,
   codAsig INT(3) ,
   PRIMARY KEY (codCont,codAsig),
@@ -88,7 +88,7 @@ CREATE TABLE LineaContrato(
   FOREIGN KEY (codAsig) REFERENCES Asignatura(codAsig)
 );
 
-CREATE TABLE AlumBil(
+CREATE TABLE AlumBil (
   dni varchar(8) ,
   fecha DATE NOT NULL,
   lugar VARCHAR(20),
