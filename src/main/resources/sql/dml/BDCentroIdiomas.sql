@@ -18,7 +18,6 @@ CREATE TABLE Profesor (
   FOREIGN KEY (CodDep) REFERENCES Departamento(CodDep)
 );
 
-
 ALTER TABLE Departamento ADD CONSTRAINT fk_prof_Dep FOREIGN KEY (dni) REFERENCES Profesor(dni);
 
 CREATE TABLE Alumno (
@@ -97,7 +96,6 @@ CREATE TABLE AlumBil(
   FOREIGN KEY (dni) REFERENCES Alumno(dni)
 );
 
-
 INSERT INTO Departamento VALUES(1,'Informática y Comunicaciones',NULL);
 INSERT INTO Departamento VALUES(2,'Administración y Finanzas',NULL);
 
@@ -124,7 +122,6 @@ INSERT INTO Asignatura VALUES(5,'Fundamentos de hardware',90,'N',2);
 INSERT INTO Asignatura VALUES(6,'Acceso a datos',180,'N',1);
 INSERT INTO Asignatura VALUES(7,'Bases de Datos',165,'N',3);
 INSERT INTO Asignatura VALUES(8,'Programación',180,'N',3);
-
 
 INSERT INTO Alumno VALUES(94342001,'Rosa','Blanco','Montero','S');
 INSERT INTO Alumno VALUES(35143098,'Dolores','García','Ramos','N');
@@ -182,7 +179,6 @@ INSERT INTO LineaMatricula(codMatr, codAsig , nota) values (12,7,6);
 INSERT INTO LineaMatricula(codMatr, codAsig , nota) values (13,8,8); 
 INSERT INTO LineaMatricula(codMatr, codAsig , nota) values (14,5,7); 
 INSERT INTO LineaMatricula(codMatr, codAsig , nota) values (9,8,5);
-
 
 INSERT INTO AlumBil VALUES(39099100,'2019/06/10','Barcelona');
 INSERT INTO AlumBil VALUES(94342001,'2019/09/10','Sevilla');
